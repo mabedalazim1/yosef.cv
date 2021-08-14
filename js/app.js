@@ -154,8 +154,8 @@ const testiName = document.querySelector(".testi-name");
 const testiTeax = document.querySelector(".testi-text");
 let index = 0;
 function zoom() {
-  imgname = `../images/testimonials/${pics[index]}.jpg`;
-  img.src = "../images/testimonials/looding.png";
+  imgname = `./images/testimonials/${pics[index]}.jpg`;
+  img.src = "./images/testimonials/looding.png";
   testiName.textContent = names[index];
   testiTeax.textContent = data[index];
   index = index + 1;
