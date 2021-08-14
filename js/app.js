@@ -133,3 +133,60 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 /* End slides*/
+
+// Zomm
+const data = [
+  "Thnke for your active ..",
+  "Leap ahead Good Work....",
+  "My Sun Yosef is the best",
+  "Graet Worook, Thanks ...",
+];
+const names = [
+  "Veronika Zhezhela",
+  "Ahmed Kidwani",
+  "Adil Mansour",
+  "Maciej Klimczak",
+];
+const pics = ["Veronika", "AhmedKidwani", "adel", "MaciejKlimczak"];
+let imgname = "";
+const img = document.querySelector(".zoom-img");
+const testiName = document.querySelector(".testi-name");
+const testiTeax = document.querySelector(".testi-text");
+let index = 0;
+function zoom() {
+  imgname = `../images/testimonials/${pics[index]}.jpg`;
+  img.src = "../images/testimonials/looding.png";
+  testiName.textContent = names[index];
+  testiTeax.textContent = data[index];
+  index = index + 1;
+  setTimeout(getImg, 1000);
+  img.width = "149";
+  img.height = "149";
+  if (index == 4) {
+    index = 0;
+  }
+
+  console.log(index);
+}
+function getImg() {
+  img.src = imgname;
+  img.width = "150";
+  img.height = "150";
+}
+// Read More
+const readMoreBtn = document.querySelector(".more-btn");
+const dots = document.querySelector(".dot");
+const more = document.querySelector(".more");
+
+function toggleMore() {
+  if (readMoreBtn.innerHTML == "Read more") {
+    console.log("OK");
+    readMoreBtn.innerHTML = "Read less";
+    dots.style.display = "none";
+    more.style.display = "inline";
+  } else {
+    readMoreBtn.innerHTML = "Read more";
+    dots.style.display = "inline";
+    more.style.display = "none";
+  }
+}

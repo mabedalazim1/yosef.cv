@@ -79,7 +79,7 @@ a {
   position: relative;
   text-align: center;
 }
-.main-title::before {
+/* .main-title::before {
   content: "";
   position: absolute;
   width: 50px;
@@ -88,8 +88,25 @@ a {
   border: 1px solid #777;
   left: 50%;
   transform: translatex(-50%);
+} */
+.main-title::after {
+  position: absolute;
+  margin: 30px auto 5px;
+  content: "";
+  background: linear-gradient(
+    to right,
+    #ccc 33.33%,
+    var(--main-color) 33.33%,
+    var(--main-color) 66.66%,
+    #ccc 66.66%,
+    #ccc 100%
+  );
+  height: 3px;
+  width: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%);
 }
-
 /* End Components */
 
 /* Start Header */
@@ -108,7 +125,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   background-color: var(--scound-color);
   transition: 0.3s;
 }
@@ -243,6 +260,10 @@ a {
   text-align: left;
   margin-top: 0px;
 }
+.header .profile-info .social i:hover {
+  color: var(--main-color);
+  cursor: pointer;
+}
 .header .profile-info .social h2 {
   text-align: center;
 }
@@ -321,7 +342,200 @@ a {
   }
 }
 /* End Header */
+
 /* Start Testimonials */
+.testimonials .testi-con {
+  position: relative;
+}
+
+.testimonials .testi-con {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 800px;
+  background-image: url("../images/testimonials.png");
+  background-size: cover;
+  position: relative;
+}
+
+.testimonials .testi-con::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #10c9c3e0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.testimonials .box {
+  margin: auto;
+  width: 90%;
+  height: 65%;
+  background: #fff;
+  position: absolute;
+  left: 5%;
+  top: 60%;
+  transform: translatey(-50%);
+  z-index: 3;
+  box-shadow: 0 0 15px 5px rgb(16 17 17 / 45%);
+}
+.testimonials .box h3 {
+  text-align: center;
+  color: var(--main-color);
+  padding: 20px;
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: -15px 0 15px;
+  position: relative;
+}
+.testimonials .box h3::after {
+  position: absolute;
+  margin: 30px auto 5px;
+  content: "";
+  background: linear-gradient(
+    to right,
+    var(--scound-color) 35%,
+    var(--main-color) 35%,
+    var(--main-color) 70%,
+    var(--scound-color) 70%,
+    var(--scound-color) 100%
+  );
+  height: 3px;
+  width: 10%;
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.testimonials .box .box-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.testimonials .box .right,
+.testimonials .box .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--main-color);
+  color: #fff;
+  transform: 0.5s;
+}
+.testimonials .box .right:hover {
+  transform: translate(3%);
+  background-color: cadetblue;
+}
+.testimonials .box .left:hover {
+  transform: translate(-3%);
+  background-color: cadetblue;
+}
+
+@media (max-width: 992px) {
+  .testimonials .testi-con {
+    max-width: 100%;
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+  }
+  .testimonials .box {
+    height: 55%;
+    top: 70%;
+  }
+}
+@media (max-width: 678px) {
+  .testimonials .testi-con {
+    max-width: 100%;
+    height: 600px;
+    background-position: center;
+    background-size: cover;
+  }
+  .testimonials .box {
+    height: 70%;
+    top: 60%;
+    margin-top: 0;
+  }
+  .testimonials .box-contant {
+    flex-direction: column;
+  }
+}
+.testimonials .box-contant {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  margin-top: 65px;
+}
+
+.testimonials .box-contant .box-img {
+  position: relative;
+  margin: 75px auto;
+}
+@media (max-width: 678px) {
+  .testimonials .box-contant {
+    margin-top: 0;
+  }
+  .testimonials .box-contant .box-img {
+    margin: 40px auto 10px;
+  }
+}
+.testimonials .box-contant .box-img img {
+  border-radius: 50%;
+  width: 150px;
+  box-shadow: 3px -4px 0px 0px var(--main-color);
+  border: 3px solid var(--main-color);
+  transition: 0.5s;
+}
+.testimonials .box-contant .box-img::before {
+  content: "";
+  width: 125px;
+  background-color: var(--main-color);
+  height: 125px;
+  border-radius: 50%;
+  position: absolute;
+  top: -22px;
+  left: -25px;
+  z-index: -1;
+  box-shadow: -2px 1px 11px 0px #888888;
+}
+.testimonials .box-contant .box-img::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 3px 4px 25px -7px #888888;
+}
+.testimonials .box-contant .box-text p {
+  margin: 0 40px;
+  text-align: justify;
+  padding-top: 150px;
+  font-size: 24px;
+  font-weight: bold;
+}
+@media (max-width: 678px) {
+  .testimonials .box-contant .box-text p {
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+}
+.testimonials .testi-name {
+  font-size: 22px;
+  position: absolute;
+  bottom: -40px;
+  left: -80px;
+  color: blue;
+}
 
 /* End Testimonials */
 /* Stsrt About */
@@ -347,7 +561,7 @@ a {
   }
 }
 
-.about-me span {
+.about-me .about-text {
   color: var(--main-color);
   font-size: large;
   font-weight: bold;
@@ -396,6 +610,14 @@ a {
     font-size: 18px;
     padding-top: 40px;
   }
+}
+.about-me .more {
+  display: none;
+}
+.about-me .more-btn {
+  color: blue;
+  cursor: pointer;
+  display: inline-block;
 }
 /* End About */
 /* Start skils */
@@ -678,4 +900,33 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
-/* End licenses */ ;
+/* End licenses */
+/* Start contact-me */
+.contact-me {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+.contact-me h2 {
+  padding-top: 50px;
+}
+.contact-me p {
+  padding-top: 10px;
+}
+.contact-me .social {
+  padding-top: 100px;
+  text-decoration: none;
+  padding: 50px;
+}
+.contact-me .social a {
+  text-decoration: none;
+  padding: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+.contact-me .social a:hover {
+  color: var(--main-color);
+}
+/* End contact-me */
